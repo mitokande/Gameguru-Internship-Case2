@@ -10,7 +10,7 @@ At OnMouseDrag function I have adjusted the player and the line renderer positio
 
 Also at OnMouseDrag I called a function that is Trajectory, and in there I have created a line to represent where the player  would more or less go.
 http://hyperphysics.phy-astr.gsu.edu/hbase/traj.html#tracon I have used this websites to get some ideas about Trajectories.
-
-![An Example](Case-2.1.gif)
 ![An Example](Case-2.2.gif)
+![An Example](Case-2.1.gif)
+
 

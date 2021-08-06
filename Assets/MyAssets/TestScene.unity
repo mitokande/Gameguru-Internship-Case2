@@ -390,7 +390,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481473243}
-  m_LocalRotation: {x: 0.17468426, y: 1e-45, z: 0, w: 0.9846245}
+  m_LocalRotation: {x: 0.17468426, y: 0, z: 0, w: 0.9846245}
   m_LocalPosition: {x: 0, y: 2.953, z: -5.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -448,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea9f67d4b871e34e895e22f86607d2a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.779
+      value: 2.1637979
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea9f67d4b871e34e895e22f86607d2a, type: 3}
       propertyPath: m_LocalScale.z
@@ -456,11 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea9f67d4b871e34e895e22f86607d2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0013179
+      value: 0.0013
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea9f67d4b871e34e895e22f86607d2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38106006
+      value: 0.0334
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ea9f67d4b871e34e895e22f86607d2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1074,8 +1074,8 @@ MonoBehaviour:
   sling: {fileID: 743163810}
   line: {fileID: 629384093}
   trajectoryline: {fileID: 1746195081}
+  cursorScreenPoint: {x: 0, y: 0, z: 0}
   pointsnumber: 40
-  timebetweenpoints: 0.3
 --- !u!4 &975835510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46d8369e53ae3a94d81424be340bb816, type: 3}
@@ -1171,7 +1171,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086550087}
-  m_LocalRotation: {x: 0.17468426, y: 1e-45, z: -0, w: 0.9846245}
+  m_LocalRotation: {x: 0.17468426, y: 0, z: 0, w: 0.9846245}
   m_LocalPosition: {x: 0, y: 2.953, z: -5.161}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1197,7 +1197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1113730636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1605,8 +1605,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498120427}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 3.3278732, y: -2.2, z: 40.9}
-  m_LocalScale: {x: 105.03, y: 70.41002, z: 1}
+  m_LocalPosition: {x: 313.1969, y: -2.2, z: 439.0939}
+  m_LocalScale: {x: 724.77, y: 866.8065, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1831,7 +1831,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100008, guid: ff6dc36862fe41641bb21568d92147c9, type: 3}
+  - {fileID: 2100004, guid: ff6dc36862fe41641bb21568d92147c9, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1903,8 +1903,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.22167933, g: 1, b: 0, a: 1}
+      key1: {r: 0.641698, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1933,7 +1933,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 2
+    textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1

@@ -12,5 +12,5 @@ Also at OnMouseDrag I called a function that is Trajectory, and in there I have 
 http://hyperphysics.phy-astr.gsu.edu/hbase/traj.html#tracon I have used this websites to get some ideas about Trajectories.
 
 ![An Example](Case-2.1.gif)
-![An Example](Case-2.1.mp4)
+![An Example](Case-2.2.gif)
 

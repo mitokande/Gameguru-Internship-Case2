@@ -8,7 +8,7 @@ I have dealed with shooting the player by rigidbody addforce command. I have cre
 
 At OnMouseDrag function I have adjusted the player and the line renderer position on the slingshot.
 
-Also at OnMouseDrag I called a function that is Trajectory, and in there I have created a line to represent where the player more or less would go.
+Also at OnMouseDrag I called a function that is Trajectory, and in there I have created a line to represent where the player  would more or less go.
 http://hyperphysics.phy-astr.gsu.edu/hbase/traj.html#tracon I have used this websites to get some ideas about Trajectories.
 
 ![An Example](Case-2.1.gif)

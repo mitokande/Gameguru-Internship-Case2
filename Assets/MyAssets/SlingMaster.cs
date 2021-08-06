@@ -82,7 +82,7 @@ public class SlingMaster : MonoBehaviour
     {
         //PLAYER IS SHOT ACCORDING TO HOW MUCH THE MOUSE IS PULLED DOWN
         shootforce = (startpos - endpos)/5f;
-        rb.AddForce((-shootforce.x)/1.1f,shootforce.y,shootforce.y);
+        rb.AddForce((-shootforce.x),shootforce.y,shootforce.y*2);
 
     }
 

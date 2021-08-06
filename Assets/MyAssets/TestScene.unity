@@ -1067,15 +1067,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 975835508}
-  startpos: {x: 0, y: 0, z: 0}
-  endpos: {x: 0, y: 0, z: 0}
-  shootforce: {x: 0, y: 0, z: 0}
   rb: {fileID: 975835507}
   sling: {fileID: 743163810}
   line: {fileID: 629384093}
   trajectoryline: {fileID: 1746195081}
-  cursorScreenPoint: {x: 0, y: 0, z: 0}
-  pointsnumber: 40
+  pointsnumber: 30
 --- !u!4 &975835510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46d8369e53ae3a94d81424be340bb816, type: 3}
@@ -1197,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1113730636
 BoxCollider:
   m_ObjectHideFlags: 0

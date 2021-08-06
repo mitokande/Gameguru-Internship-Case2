@@ -5,21 +5,22 @@ using UnityEngine;
 public class SlingMaster : MonoBehaviour
 {
     public Animator anim;
-    public Vector3 startpos;
-    public Vector3 endpos;
-    public Vector3 shootforce;
+    private Vector3 startpos;
+    private Vector3 endpos;
+    private Vector3 shootforce;
     public Rigidbody rb;
     public GameObject sling;
     public LineRenderer line;
     public LineRenderer trajectoryline;
-    public Vector3 cursorScreenPoint;
+    private Vector3 cursorScreenPoint;
     public int pointsnumber;
     private Vector3 screenPoint;
     private Rigidbody[] ragdoll;
-    bool ishot = true;
+
     public void Start()
     {
         ragdoll = GetComponentsInChildren<Rigidbody>();
+        //DISABLING THE RAGDOLL
         foreach(Rigidbody rag in ragdoll)
         {
             rag.isKinematic = true;
@@ -31,6 +32,7 @@ public class SlingMaster : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        //ENABLE RAGDOLL IF PLAYER HITS A WALL
         if (other.CompareTag("Wall"))
         {
             foreach (Rigidbody rag in ragdoll)
@@ -46,17 +48,17 @@ public class SlingMaster : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        //STARTING AIMING ON MOUSEDOWN
         startpos = Input.mousePosition;
         anim.SetBool("ondrag", true);
-        ishot = false;
-        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
-        //offset = (gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z)));
+        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
 
     }
     public void OnMouseDrag()
     {
+        //POSITIONING PLAYER POSITION AND CALLING TRAJECTORY FUNCTION
         endpos = Input.mousePosition;
         cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorScreenPoint);
@@ -68,7 +70,7 @@ public class SlingMaster : MonoBehaviour
     }
     public void OnMouseUp()
     {
-
+        //SHOOTING THE PLAYER BY CALLING THE SLINGSHOT FUNCTION
         endpos = Input.mousePosition;
         Slingshot();
         
@@ -78,61 +80,31 @@ public class SlingMaster : MonoBehaviour
 
     public void Slingshot()
     {
+        //PLAYER IS SHOT ACCORDING TO HOW MUCH THE MOUSE IS PULLED DOWN
         shootforce = (startpos - endpos)/5f;
-        ishot = true;
-        rb.AddForce((-shootforce.x)/1.6f,shootforce.y,shootforce.y);
+        rb.AddForce((-shootforce.x)/1.1f,shootforce.y,shootforce.y);
 
     }
 
-    private void Update()
-    {
-        if (!ishot)
-        {
-            trajectoryline.enabled = true;
-            Trajectory();
-        }
-
-    }
 
     public void Trajectory()
     {
+        trajectoryline.enabled = true;
         Vector3 velocity = (startpos - Input.mousePosition) / rb.mass * Time.fixedDeltaTime;
         List<Vector3> linepoints = new List<Vector3>();
-        float timeStepInterval = 0.1f;
+        float timeStepInterval = 0.5f;
         int maxSteps = (int)(pointsnumber / timeStepInterval);
         Vector3 directionVector = transform.up;
         Vector3 launchPosition = transform.position + transform.up;
         
         for (int i = 0; i < maxSteps; ++i)
         {
-
+            //ADJUSTING THE TRAJECTORY LINE FOR EVERY STEP
             Vector3 calculatedPosition = launchPosition + directionVector * velocity.y / 10 * i * timeStepInterval;
-            calculatedPosition.y += Physics.gravity.y  / 5 * Mathf.Pow(i * timeStepInterval, 2);
-            calculatedPosition.z += velocity.z + 19 * i * timeStepInterval;
+            calculatedPosition.y -= timeStepInterval- Physics.gravity.y / 8 * Mathf.Pow(i * timeStepInterval, 2);
+            calculatedPosition.z += velocity.z + 15 * i * timeStepInterval;
             calculatedPosition.x -= velocity.x / 10f * i * timeStepInterval;
 
-            linepoints.Add(calculatedPosition);
-        }
-        trajectoryline.positionCount = linepoints.Count;
-        trajectoryline.SetPositions(linepoints.ToArray());
-    }
-    public void Trajectory2()
-    {
-        Vector3 velocity = (startpos- cursorScreenPoint) / rb.mass * Time.fixedDeltaTime;
-        List<Vector3> linepoints = new List<Vector3>();
-        float timeStepInterval = 0.1f;
-        int maxSteps = (int)(pointsnumber / timeStepInterval);
-        Vector3 directionVector = transform.up;
-        Vector3 launchPosition = transform.position + transform.up;
-       
-        for (int i = 0; i < maxSteps; ++i)
-        {
-
-            Vector3 calculatedPosition = launchPosition + directionVector * velocity.y/10 * i * timeStepInterval; 
-            calculatedPosition.y += Physics.gravity.y / 200 * Mathf.Pow(i * timeStepInterval, 2); 
-            calculatedPosition.z += velocity.z + 10 * i * timeStepInterval;
-            calculatedPosition.x -= Mathf.Clamp(velocity.x, -12, 12)/ 5 * i * timeStepInterval;
-            
             linepoints.Add(calculatedPosition);
         }
         trajectoryline.positionCount = linepoints.Count;
